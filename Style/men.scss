@@ -19,6 +19,11 @@ body {
     height: 3200px;
   }
 
+  a {
+    text-decoration: none;
+    color: $black;
+  }
+
   img {
     width: 200px;
     height: 200px;
@@ -148,6 +153,7 @@ body {
     .title {
       position: absolute;
       top: 15%;
+      left: 46%;
       font-size: 1.5rem;
       letter-spacing: 0.3rem;
     }
@@ -165,7 +171,12 @@ body {
         position: absolute;
         top: 10%;
         right: 3%;
+        cursor: pointer;
         font-size: 1.4rem;
+
+        &:hover {
+          color: $grey;
+        }
       }
 
       .menu-list {
@@ -174,6 +185,11 @@ body {
         line-height: 170%;
         font-size: 1.2rem;
         color: #000;
+
+        a {
+          text-decoration: none;
+          color: $black;
+        }
 
         .sale {
           color: red;
@@ -231,6 +247,7 @@ body {
       background-color: white;
       z-index: 20;
       display: none;
+      overflow: scroll;
 
       @media (min-width: 600px) {
         width: 20%;
@@ -249,6 +266,29 @@ body {
         right: 0;
       }
 
+      .cart {
+        width: 100%;
+        height: 18rem;
+        border-bottom: 1px solid grey;
+        margin: 12% 0 2% 0;
+        position: relative;
+
+        img {
+          width: 75%;
+          height: 60%;
+          margin: 0 0 0 12%;
+        }
+        h3 {
+          padding: 0.5rem 0.5rem;
+        }
+        p {
+          padding: 0.5rem 0.5rem;
+        }
+        .add {
+          top: 30%;
+        }
+      }
+
       .checkout {
         width: 8rem;
         height: 2.5rem;
@@ -257,9 +297,9 @@ body {
         border: none;
         outline: none;
         cursor: pointer;
-        position: absolute;
+        position: fixed;
         bottom: 5%;
-        left: 30%;
+        right: 5%;
       }
     }
 
@@ -276,6 +316,7 @@ body {
       background-color: white;
       z-index: 20;
       display: none;
+      overflow: scroll;
       //position: relative;
 
       @media (min-width: 600px) {
@@ -295,7 +336,6 @@ body {
       }
 
       .favourites {
-        border: 2px solid blue;
         width: 90%;
         height: 99%;
         position: absolute;
@@ -307,19 +347,17 @@ body {
         width: 100%;
         height: 18rem;
         border-bottom: 1px solid grey;
+        margin: 0 0 2% 0;
 
         img {
           width: 75%;
           height: 60%;
           margin: 0 0 0 12%;
-          border: 2px solid magenta;
         }
         h3 {
-          border: 2px solid black;
           padding: 0.5rem 0.5rem;
         }
         p {
-          border: 2px solid lime;
           padding: 0.5rem 0.5rem;
         }
         .add {

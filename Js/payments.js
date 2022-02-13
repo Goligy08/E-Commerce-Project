@@ -20,6 +20,9 @@ const cardNum = document.getElementById('cardNum')
 const expiry = document.getElementById('month')
 const cvv = document.getElementById('CVV')
 const backbtn = document.querySelector('.back')
+const productOrder = document.getElementById('product-order')
+const subtotal = document.querySelector('.subtotal')
+const total = document.querySelector('.total')
 
 next.addEventListener('click', function(e) {
     e.preventDefault()
@@ -41,7 +44,7 @@ back.addEventListener('click', function(e) {
 submit.addEventListener('click', function(e){
     e.preventDefault()
     checkPaymentInputs()
-    confirmation.classList.add('show')
+   
 
 })
 
@@ -53,7 +56,36 @@ backbtn.addEventListener('click', function() {
 
 })
 
+displayOrder()
 
+function displayOrder() {
+   var description =  localStorage.getItem("description")
+   var price = localStorage.getItem("price")
+   var imgSrc = localStorage.getItem("imgSrc")
+
+   console.log(description, price, imgSrc)
+
+   var orderSummary = document.createElement('div')
+   orderSummary.classList.add('order')
+   orderSummary.innerHTML = ` <img src="${imgSrc}">
+   <h3 class="fav-desc">${description}</h3>
+   <p class="fav-price">${price}</p>`
+
+   productOrder.appendChild(orderSummary)
+  
+   calculateSubTotal(price)  
+}
+
+function calculateSubTotal(price) {
+    let itemPrice = parseFloat(price.replace('£', ''))
+    let shippingCost = 4.99
+    let totalCost = Math.round((itemPrice += shippingCost) * 100) / 100
+    console.log(totalCost)
+
+    subtotal.innerHTML = 'Subtotal: '+'£' +totalCost
+    total.innerHTML = 'Total:  ' +'£' +totalCost
+
+}
 
 function checkDeliveryInputs() {
 
@@ -99,8 +131,7 @@ function checkDeliveryInputs() {
         setSuccess(phone)
     }
 
-    // try a different success func for each of delivery & payment
-
+    // check if fields are filled before proceeding
     if (firstnameValue != '' && lastnameValue != '' && streetValue != '' && cityValue != ''
          && postcodeValue != '' && phoneValue != ''){
         formStep1.classList.add('hide')
@@ -143,6 +174,11 @@ function checkPaymentInputs(){
         setErrorFor(cvv, 'CVV cannot be blank')
     } else{
         setSuccess(cvv)
+    }
+
+
+    if (cardNameValue != '' && cardNumValue != '' && expiryValue != '' && cvvValue != ''){
+        confirmation.classList.add('show')
     }
 
 }

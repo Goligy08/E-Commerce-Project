@@ -28,6 +28,11 @@ body {
   }
 }
 
+body a {
+  text-decoration: none;
+  color: #000000;
+}
+
 body img {
   width: 200px;
   height: 200px;
@@ -184,6 +189,7 @@ body .nav .hamburger i:hover {
 body .nav .title {
   position: absolute;
   top: 15%;
+  left: 46%;
   font-size: 1.5rem;
   letter-spacing: 0.3rem;
 }
@@ -209,7 +215,12 @@ body .nav .mobile-container #exit {
   position: absolute;
   top: 10%;
   right: 3%;
+  cursor: pointer;
   font-size: 1.4rem;
+}
+
+body .nav .mobile-container #exit:hover {
+  color: #b2babb;
 }
 
 body .nav .mobile-container .menu-list {
@@ -218,6 +229,11 @@ body .nav .mobile-container .menu-list {
   line-height: 170%;
   font-size: 1.2rem;
   color: #000;
+}
+
+body .nav .mobile-container .menu-list a {
+  text-decoration: none;
+  color: #000000;
 }
 
 body .nav .mobile-container .menu-list .sale {
@@ -287,6 +303,7 @@ body .nav .shopping-cart {
   background-color: white;
   z-index: 20;
   display: none;
+  overflow: scroll;
 }
 
 @media (min-width: 600px) {
@@ -308,6 +325,32 @@ body .nav .shopping-cart .close-cart {
   right: 0;
 }
 
+body .nav .shopping-cart .cart {
+  width: 100%;
+  height: 18rem;
+  border-bottom: 1px solid grey;
+  margin: 12% 0 2% 0;
+  position: relative;
+}
+
+body .nav .shopping-cart .cart img {
+  width: 75%;
+  height: 60%;
+  margin: 0 0 0 12%;
+}
+
+body .nav .shopping-cart .cart h3 {
+  padding: 0.5rem 0.5rem;
+}
+
+body .nav .shopping-cart .cart p {
+  padding: 0.5rem 0.5rem;
+}
+
+body .nav .shopping-cart .cart .add {
+  top: 30%;
+}
+
 body .nav .shopping-cart .checkout {
   width: 8rem;
   height: 2.5rem;
@@ -316,9 +359,9 @@ body .nav .shopping-cart .checkout {
   border: none;
   outline: none;
   cursor: pointer;
-  position: absolute;
+  position: fixed;
   bottom: 5%;
-  left: 30%;
+  right: 5%;
 }
 
 body .nav .shopping-cart.show {
@@ -334,6 +377,7 @@ body .nav .favourite-list {
   background-color: white;
   z-index: 20;
   display: none;
+  overflow: scroll;
 }
 
 @media (min-width: 600px) {
@@ -356,7 +400,6 @@ body .nav .favourite-list .close-fav {
 }
 
 body .nav .favourite-list .favourites {
-  border: 2px solid blue;
   width: 90%;
   height: 99%;
   position: absolute;
@@ -368,22 +411,20 @@ body .nav .favourite-list .fav {
   width: 100%;
   height: 18rem;
   border-bottom: 1px solid grey;
+  margin: 0 0 2% 0;
 }
 
 body .nav .favourite-list .fav img {
   width: 75%;
   height: 60%;
   margin: 0 0 0 12%;
-  border: 2px solid magenta;
 }
 
 body .nav .favourite-list .fav h3 {
-  border: 2px solid black;
   padding: 0.5rem 0.5rem;
 }
 
 body .nav .favourite-list .fav p {
-  border: 2px solid lime;
   padding: 0.5rem 0.5rem;
 }
 

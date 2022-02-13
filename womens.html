@@ -8,6 +8,7 @@
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <script src="https://kit.fontawesome.com/08229a6deb.js" crossorigin="anonymous"></script>
+        <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🛒</text></svg>">
         <link rel="stylesheet" href="Style/categories.css">
     </head>
     <body>
@@ -20,25 +21,40 @@
             <div class="mobile-container">
                 <i class="fas fa-times" id="exit"></i>
                 <ul class="menu-list">
-                    <li>Women</li>
-                    <li>Men</li>
+                    <a href="womens.html"><li>Women</li></a>
+                    <a href="mens.html"><li>Men</li></a>
+                    
                     <li class="sale">Sale</li>
                 </ul>
             </div>
          
-            <h1 class="title">OUTFIT</h1>
+            <a href="index.html"><h1 class="title">OUTFIT</h1></a>
 
             <div class="option-icons">
-             <button class="favourites"><i class="fas fa-heart"></i></button>
+             <button class="favouritesBtn"><i class="fas fa-heart"></i></button>
              <button class="basket"><i class="fas fa-shopping-cart"></i></button>
             </div>
 
             <div class="shopping-cart">
                 <button class="close-cart">Close</button>
+                <ul class="cart" id="cart">
+
+                </ul>
+                <button  onclick="window.location.href='payment.html';" class="checkout">CHECKOUT <i class="fas fa-shopping-cart"></i></button>
             </div>
 
             <div class="favourite-list">
                 <button class="close-fav">Close</button>
+                <ul class="favourites" id="favourites">
+                    <!--
+                        <div class="fav">
+                            <img alt="">
+                            <h3><span class="fav-desc">Mens Premium Tee - Green</span></h3>
+                            <p><span class="fav-price">£39.99</span></p>
+                            <button class="add">Add to bag</button>
+                        </div>
+                    -->
+                    </ul>
             </div>
         </nav>
 

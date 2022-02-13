@@ -10,10 +10,10 @@ const shoppingCart = document.querySelector('.shopping-cart')
 const favouritesBtn = document.querySelector('.favouritesBtn')
 const favouriteList = document.querySelector('.favourite-list')
 const closeFav = document.querySelector('.close-fav')
-let addFav = document.querySelectorAll('.addFav')
-let addToCart = document.querySelectorAll('.add')
 const favouritesUL = document.getElementById('favourites')
 const cartUL = document.getElementById('cart')
+
+
 
 
 
@@ -26,63 +26,75 @@ exit.addEventListener('click', function() {
     menu.classList.remove('show')
 })
 
-addFav.forEach(function(i) {
-    i.addEventListener('click', function(){
-        i.classList.toggle('show')
+var addToFavouritesBtn = document.getElementsByClassName('addFav')
+for (var i = 0; i < addToFavouritesBtn.length; i++){
+    var button = addToFavouritesBtn[i]
+    button.addEventListener('click', addToFavouriteClicked)
+}
+
+var addToBasketBtn = document.getElementsByClassName('add')
+for (var i = 0; i< addToBasketBtn.length; i++){
+    var cartButton = addToBasketBtn[i]
+    cartButton.addEventListener('click', addItemToBasketClicked)
+}
+
+function addToFavouriteClicked(event) {
+    var button = event.target
+    var favItem = button.parentElement.parentElement
+    var description = favItem.getElementsByClassName('product-desc')[0].innerText
+    var price = favItem.getElementsByClassName('product-price')[0].innerText
+    var imgSrc = favItem.getElementsByClassName('product-img')[0].src
+    var favIcon = favItem.getElementsByClassName('addFav')[0]
+    
+    console.log(description, price, imgSrc)
+    favIcon.classList.add('show')
+
+    addItemToFavouritesList(description, price, imgSrc)
+
+}
+
+function addItemToFavouritesList(description, price, imgSrc) {
+     var favouriteItem = document.createElement('div')
+     favouriteItem.classList.add('fav')
+     favouriteItem.innerHTML = ` <img src="${imgSrc}">
+     <h3 class="fav-desc">${description}</h3>
+     <p class="fav-price">${price}</p>`
+
+     favouritesUL.appendChild(favouriteItem)
+     
+}
+
+function addItemToBasketClicked(event){
+    var cartButton = event.target
+    var bagItem = cartButton.parentElement
+    var description = bagItem.getElementsByClassName('product-desc')[0].innerText
+    var price = bagItem.getElementsByClassName('product-price')[0].innerText
+    var imgSrc = bagItem.getElementsByClassName('product-img')[0].src
+    var cartIcon = bagItem.getElementsByClassName('add')[0]
+
+    cartIcon.classList.add('show')
+
+    addItemToBasket(description, price, imgSrc)
+
+    localStorage.setItem("description", description)
+    localStorage.setItem("price", price)
+    localStorage.setItem("imgSrc", imgSrc)
+}
+
+function addItemToBasket(description, price, imgSrc){
+    var cartItem = document.createElement('div')
+    cartItem.classList.add('cart')
+    cartItem.innerHTML = ` <img src="${imgSrc}">
+    <h3 class="fav-desc">${description}</h3>
+    <p class="fav-price">${price}</p>`
+
+    cartUL.appendChild(cartItem)
+}
 
 
-        if (i.classList.contains("show") == true){
-            const fav = document.createElement('div')
-            fav.classList.add('fav')
-            
-            let desc = document.querySelectorAll('#desc')
-           
-            
-            let price = document.querySelectorAll('#price')
 
-           
-            let favDesc = desc.innerText
-            let favPrice = price.innerText
-            fav.innerHTML = ` <img alt="">
-            <h3 class="fav-desc">${favDesc}</h3>
-            <p class="fav-price">${favPrice}</p>
-            <button class="add">Add to bag</button>`
-            favouritesUL.appendChild(fav)
-        } else {
-            // Removes all children - not what we want!!
-            favouritesUL.removeChild(favouritesUL.lastChild)
-        }
 
-      
-    })
 
-   
-})
-
-addToCart.forEach(function(i) {
-    i.addEventListener('click', function() {
-        if (i.classList.contains("show") == false){
-            i.classList.add('show')
-            i.innerHTML = "Added!"
-        }  else {
-            i.classList.remove('show')
-            i.innerHTML = "Add To Bag"
-        }
-
-        if(i.classList.contains("show") == true){
-            const bag = document.createElement('div')
-            bag.classList.add('fav')
-
-            bag.innerHTML = ` <img alt="">
-            <h3 class="fav-desc"></h3>
-            <p class="fav-price"></p>
-            <button class="add">Add to bag</button>`
-            cartUL.appendChild(bag)
-        } else {
-            cartUL.removeChild(cartUL.lastChild)
-        }
-    })
-})
 
 
 

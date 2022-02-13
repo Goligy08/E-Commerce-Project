@@ -19,9 +19,35 @@ body {
     height: 3200px;
   }
 
+  a {
+    text-decoration: none;
+    color: $black;
+  }
+
   img {
     width: 200px;
     height: 200px;
+  }
+
+  .add {
+    width: 6rem;
+    height: 2.5rem;
+    background-color: white;
+    border: 1px solid black;
+    outline: none;
+    cursor: pointer;
+    position: absolute;
+    bottom: 5%;
+    right: 5%;
+    &:hover {
+      opacity: 0.6;
+    }
+  }
+
+  .add.show {
+    background-color: #52b783;
+    border: 1px solid #52b783;
+    color: white;
   }
 
   .product-card {
@@ -68,7 +94,7 @@ body {
     .addFav.show {
       color: red;
     }
-
+    /*
     .add {
       width: 6rem;
       height: 2.5rem;
@@ -89,6 +115,7 @@ body {
       border: 1px solid #52b783;
       color: white;
     }
+    */
   }
 
   .nav {
@@ -126,6 +153,7 @@ body {
     .title {
       position: absolute;
       top: 15%;
+      left: 46%;
       font-size: 1.5rem;
       letter-spacing: 0.3rem;
     }
@@ -143,7 +171,12 @@ body {
         position: absolute;
         top: 10%;
         right: 3%;
+        cursor: pointer;
         font-size: 1.4rem;
+
+        &:hover {
+          color: $grey;
+        }
       }
 
       .menu-list {
@@ -152,6 +185,11 @@ body {
         line-height: 170%;
         font-size: 1.2rem;
         color: #000;
+
+        a {
+          text-decoration: none;
+          color: $black;
+        }
 
         .sale {
           color: red;
@@ -209,6 +247,7 @@ body {
       background-color: white;
       z-index: 20;
       display: none;
+      overflow: scroll;
 
       @media (min-width: 600px) {
         width: 20%;
@@ -226,6 +265,41 @@ body {
         top: 0;
         right: 0;
       }
+      .cart {
+        width: 100%;
+        height: 18rem;
+        border-bottom: 1px solid grey;
+        margin: 12% 0 2% 0;
+        position: relative;
+
+        img {
+          width: 75%;
+          height: 60%;
+          margin: 0 0 0 12%;
+        }
+        h3 {
+          padding: 0.5rem 0.5rem;
+        }
+        p {
+          padding: 0.5rem 0.5rem;
+        }
+        .add {
+          top: 30%;
+        }
+      }
+
+      .checkout {
+        width: 8rem;
+        height: 2.5rem;
+        background-color: #52b783;
+        color: #fff;
+        border: none;
+        outline: none;
+        cursor: pointer;
+        position: fixed;
+        bottom: 5%;
+        right: 5%;
+      }
     }
 
     .shopping-cart.show {
@@ -241,6 +315,7 @@ body {
       background-color: white;
       z-index: 20;
       display: none;
+      overflow: scroll;
 
       @media (min-width: 600px) {
         width: 20%;
@@ -256,6 +331,35 @@ body {
         position: absolute;
         top: 0;
         right: 0;
+      }
+
+      .favourites {
+        width: 90%;
+        height: 99%;
+        position: absolute;
+        top: 5%;
+        left: 2%;
+      }
+      .fav {
+        width: 100%;
+        height: 18rem;
+        border-bottom: 1px solid grey;
+        margin: 0 0 2% 0;
+
+        img {
+          width: 75%;
+          height: 60%;
+          margin: 0 0 0 12%;
+        }
+        h3 {
+          padding: 0.5rem 0.5rem;
+        }
+        p {
+          padding: 0.5rem 0.5rem;
+        }
+        .add {
+          top: 30%;
+        }
       }
     }
 

@@ -24,6 +24,11 @@ body {
     height: 200px;
   }
 
+  a {
+    text-decoration: none;
+    color: $black;
+  }
+
   .nav {
     width: 100%;
     height: 6%;
@@ -59,6 +64,7 @@ body {
     .title {
       position: absolute;
       top: 15%;
+      left: 46%;
       font-size: 1.5rem;
       letter-spacing: 0.3rem;
     }
@@ -76,8 +82,12 @@ body {
         position: absolute;
         top: 10%;
         right: 3%;
-        font-size: 1.4rem;
         cursor: pointer;
+        font-size: 1.4rem;
+
+        &:hover {
+          color: $grey;
+        }
       }
 
       .menu-list {
@@ -86,6 +96,11 @@ body {
         line-height: 170%;
         font-size: 1.2rem;
         color: #000;
+
+        a {
+          text-decoration: none;
+          color: #000;
+        }
 
         .sale {
           color: red;
